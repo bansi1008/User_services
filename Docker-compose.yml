@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  user-service:
+    build: .
+    container_name: user-service
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://ep-young-base-abq1garq-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+      SPRING_DATASOURCE_USERNAME: neondb_owner
+      SPRING_DATASOURCE_PASSWORD: npg_Zzn8NH4buRkM
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
