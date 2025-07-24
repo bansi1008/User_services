@@ -19,14 +19,14 @@ public class Security {
         http
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/signup", "/login", "/logout").permitAll()
+            .requestMatchers("/signup", "/login", "/logout","/me").permitAll()
             .anyRequest().authenticated()
         )
         .exceptionHandling(ex -> ex
             .authenticationEntryPoint(authenticationEntryPoint())
             .accessDeniedHandler(accessDeniedHandler())
         )
-        .logout(logout -> logout.disable()); // 🚫 disable default logout behavior
+        .logout(logout -> logout.disable()); 
 
     return http.build();
     }
