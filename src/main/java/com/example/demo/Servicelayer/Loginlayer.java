@@ -34,8 +34,13 @@ public class Loginlayer {
 
      
         
+       String role = user.getRole() != null ? user.getRole().toString() : null; // Convert Userrole to String
+        if (role == null) {
+            throw new RuntimeException("User role not found");
+        }
 
-       return jwtUtil.generateToken(user.getEmail());
+        // Generate JWT token
+       return jwtUtil.generateToken(user.getEmail(), role);
     }
     
 }
